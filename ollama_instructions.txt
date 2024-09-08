@@ -1,0 +1,44 @@
+conda create -n llm-cpp python=3.11
+conda activate llm-cpp
+pip install --pre --upgrade ipex-llm[cpp]
+
+
+
+mkdir llama-cpp
+cd llama-cpp
+
+
+Using Admin miniforge Run
+init-llama-cpp.bat
+
+
+Admin no longer needed for the rest
+
+conda activate llm-cpp
+init-ollama.bat
+
+set OLLAMA_NUM_GPU=999
+set no_proxy=localhost,127.0.0.1
+set ZES_ENABLE_SYSMAN=1
+set SYCL_CACHE_PERSISTENT=1
+rem under most circumstances, the following environment variable may improve performance, but sometimes this may also cause performance degradation
+set SYCL_PI_LEVEL_ZERO_USE_IMMEDIATE_COMMANDLISTS=1
+
+@call "C:\Program Files (x86)\Intel\oneAPI\setvars.bat
+
+set ollama_host=localhost:11434
+set OLLAMA_ORIGINS=chrome-extension://...
+
+create a text file Model.txt with one line "FROM ./downloads/mistrallite.Q4_K_M.gguf"
+
+ollama create mistrallite -f Modelfile
+
+Now, mistralite is the name of the model being used
+
+ollama serve
+
+
+Ollama server is now started, on client side, use
+
+curl -X POST -d "{ \"model\": \"llama3p1\", \"prompt\": \"Why is the sky blue?\", \"stream\": false}" http://localhost:11434/api/generate
+
