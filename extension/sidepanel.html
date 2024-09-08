@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veil</title>
+    <link rel="stylesheet" href="sakura.css" />
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        box-sizing: border-box;
+
+        textarea {
+          flex: 1;
+        }
+
+        #text-replacements {
+          flex: 0.5;
+          font-size: 12px;
+        }
+
+        #text-after-2 {
+          flex: 1;
+          padding: 6px 10px;
+          background-color: #4a4a4a;
+          border-radius: 4px;
+          margin-bottom: 10px;
+          white-space: pre-line;
+          overflow-y: auto;
+
+          .r {
+            color: chartreuse;
+          }
+        }
+
+        #text-replacements {
+          overflow-y: auto;
+        }
+
+        .actions {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          button {
+            min-width: 100px;
+          }
+        }
+      }
+    </style>
+    <label>Original Text</label>
+    <textarea placeholder="Original" id="text-before"></textarea>
+    <div class="actions">
+      <button id="upload">Upload</button>
+      <button id="anonymize">Anonymize</button>
+      <button id="paste" style="display: none">Paste</button>
+      <button id="copy-after">Copy Result</button>
+    </div>
+    <div class="actions">
+      <label>Anonymized Text</label>
+    </div>
+
+    <textarea
+      placeholder="Anonymized"
+      readonly
+      id="text-after"
+      hidden
+    ></textarea>
+    <div id="text-after-2" contenteditable="true"></div>
+    <label>Replacements</label>
+    <div id="text-replacements"></div>
+    <script src="sidepanel.js"></script>
+  </body>
+</html>
