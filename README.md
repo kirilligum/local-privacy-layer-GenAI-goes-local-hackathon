@@ -1,5 +1,9 @@
 # Local Privacy Layer
 
+# slides
+
+https://docs.google.com/presentation/d/1LrPKDWv3EFNndnSxff9N_QblInYoCEdsTqoZAjqxc2U/edit?usp=sharing
+
 # user flow
 
 1. open chat gpt website
